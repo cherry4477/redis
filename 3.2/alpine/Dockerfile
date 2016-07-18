@@ -21,6 +21,7 @@ RUN set -x \
 	&& wget -O redis.tar.gz "$REDIS_DOWNLOAD_URL" \
 	&& echo "$REDIS_DOWNLOAD_SHA1 *redis.tar.gz" | sha1sum -c - \
 	&& mkdir -p /usr/src/redis \
+	&& mkdir -p /var/lib/redis \
 	&& tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1 \
 	&& rm redis.tar.gz \
 	&& make -C /usr/src/redis \
